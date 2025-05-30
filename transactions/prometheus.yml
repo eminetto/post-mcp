@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s # How frequently to scrape targets
+  evaluation_interval: 15s # How frequently to evaluate rules
+
+scrape_configs:
+  - job_name: "transactions-api"
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets:
+          ["app:8080"] # 'app' is the service name of your Go API in docker-compose
+          # '8080' is the port your Go app exposes metrics on
